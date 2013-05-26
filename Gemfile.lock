@@ -4,6 +4,7 @@ GEM
     haml (4.0.3)
       tilt
     redcarpet (2.3.0)
+    sass (3.2.9)
     tilt (1.4.1)
 
 PLATFORMS
@@ -12,3 +13,4 @@ PLATFORMS
 DEPENDENCIES
   haml
   redcarpet
+  sass

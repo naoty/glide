@@ -20,8 +20,12 @@ file "index.html" => ["layout.haml", "content.html"] do |t|
 end
 
 file "content.html" => ["content.md"] do |t|
-  renderer = Redcarpet::Render::SectionedHTML
-  options = { autolink: true }
+  renderer = Redcarpet::Render::SectionedHTML.new(prettify: true)
+  options = {
+    autolink: true,
+    fenced_code_blocks: true,
+    disable_indented_code_blocks: true
+  }
   markdown = Redcarpet::Markdown.new(renderer, options)
 
   md_file = File.open("content.md", "rb")

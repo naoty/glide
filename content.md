@@ -1,6 +1,6 @@
 # Slide template
 
-Naoto Kaneko
+Naoto Kaneko / [@naoty_k](http://twitter.com/naoty_k)
 
 ---
 

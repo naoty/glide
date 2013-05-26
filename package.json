@@ -1,0 +1,11 @@
+{
+    "name": "slide_template",
+    "version": "0.0.1",
+    "author": "Naoto Kaneko <naoty.k@gmail.com> (http://naoty.info)",
+    "license": "MIT",
+    "devDependencies": {
+        "grunt": "*",
+        "grunt-regarde": "*",
+        "grunt-contrib-sass": "*"
+    }
+}
