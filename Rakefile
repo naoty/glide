@@ -20,7 +20,7 @@ file "index.html" => ["layout.haml", "content.html"] do |t|
 end
 
 file "content.html" => ["content.md"] do |t|
-  renderer = Redcarpet::Render::SectionedHTML.new(prettify: true)
+  renderer = Redcarpet::Render::SectionedHTML.new
   options = {
     autolink: true,
     fenced_code_blocks: true,
