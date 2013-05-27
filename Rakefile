@@ -7,7 +7,7 @@ task :default => ["index.html"]
 
 file "index.html" => ["layout.haml", "content.html"] do |t|
   content_file = File.open("content.html", "rb")
-  content_html = content_file.read
+  content_html = content_file.read.force_encoding("utf-8")
 
   template = Tilt::HamlTemplate.new("layout.haml")
   html = template.render { content_html }
