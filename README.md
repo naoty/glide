@@ -40,15 +40,15 @@ At last, you must fix paths for these libraries at `layout.haml`.
 
 ## Usage
 
-After the setup, What to do is to write contents for your slide and to build them. The contents should be written in `content.md`.
+After the setup, What to do is to write contents for your slide and to build them. The contents should be written in a content file, named `content.ext`. Now, content file supports haml and markdown. See `sample_content.haml` and `sample_content.md`.
 
 ```sh
-$ vi content.md
+$ vi content.haml
 $ rake
 $ open index.html
 ```
 
-`rake` command generates `index.html` from `content.md` and `layout.haml`. Open `index.html` and let's start your slide!
+`rake` command generates `index.html` from `content.haml` and `layout.haml`. Open `index.html` and let's start your slide!
 
 ## Contributing
 

@@ -1,9 +1,26 @@
 require "rake/clean"
 require "tilt/haml"
-require "redcarpet"
-require "./lib/sectioned_html"
 
-task :default => ["index.html"]
+task :default => [:build]
+
+desc "Build index.html"
+task :build => [:load_content_task, "index.html"]
+
+desc "Load build task"
+task :load_content_task do
+  content_files = Dir["content.*"]
+  content_files.delete("content.html")
+  abort "Load Error" if content_files.length != 1
+
+  content_file = content_files.first
+  extension = File.extname(content_file).delete(".")
+  load "./lib/tasks/#{extension}.rake"
+end
+
+namespace :build do
+  desc "Build index.html"
+  task :html => [:load_content_task, "index.html"]
+end
 
 file "index.html" => ["layout.haml", "content.html"] do |t|
   content_file = File.open("content.html", "rb")
@@ -16,26 +33,6 @@ file "index.html" => ["layout.haml", "content.html"] do |t|
   html_file.write(html)
 
   content_file.close
-  html_file.close
-end
-
-file "content.html" => ["content.md"] do |t|
-  renderer = Redcarpet::Render::SectionedHTML.new
-  options = {
-    autolink: true,
-    fenced_code_blocks: true,
-    disable_indented_code_blocks: true
-  }
-  markdown = Redcarpet::Markdown.new(renderer, options)
-
-  md_file = File.open("content.md", "rb")
-  md_content = md_file.read
-  html_content = markdown.render(md_content)
-
-  html_file = File.open("content.html", "wb")
-  html_file.write(html_content)
-
-  md_file.close
   html_file.close
 end
 
