@@ -3,14 +3,18 @@ GEM
   specs:
     haml (4.0.3)
       tilt
+    pdfkit (0.5.3)
     redcarpet (2.3.0)
     sass (3.2.9)
     tilt (1.4.1)
+    wkhtmltopdf-binary (0.9.9.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   haml
+  pdfkit
   redcarpet
   sass
+  wkhtmltopdf-binary

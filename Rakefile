@@ -1,5 +1,6 @@
 require "rake/clean"
 require "tilt/haml"
+require "pdfkit"
 
 task :default => [:build]
 
@@ -18,8 +19,11 @@ task :load_content_task do
 end
 
 namespace :build do
-  desc "Build index.html"
+  desc "Build index.html from layout.haml and content.html"
   task :html => [:load_content_task, "index.html"]
+
+  desc "Build index.pdf from index.html"
+  task :pdf => [:load_content_task, "index.pdf"]
 end
 
 file "index.html" => ["layout.haml", "content.html"] do |t|
@@ -34,6 +38,14 @@ file "index.html" => ["layout.haml", "content.html"] do |t|
 
   content_file.close
   html_file.close
+end
+
+file "index.pdf" => ["index.html"] do |t|
+  File.open("index.html", "rb") do |file|
+    html = file.read.force_encoding("utf-8")
+    kit = PDFKit.new(html)
+    kit.to_file("index.pdf")
+  end
 end
 
 CLEAN.include(["content.html"])
