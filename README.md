@@ -16,4 +16,4 @@ $ open index.html
 
 ## Contributing
 
-If you make themes for your own, welcome your pull request to include it in the template themes!
+If you make themes for your own, welcome your pull request to include it in the template themes! Please see [CONTRIBUTING.md](https://github.com/naoty/glide/blob/master/CONTRIBUTING.md).

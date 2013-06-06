@@ -1,4 +1,6 @@
-# Slide template
+# Glide
+
+## at content.md
 
 Naoto Kaneko / [@naoty_k](http://twitter.com/naoty_k)
 
